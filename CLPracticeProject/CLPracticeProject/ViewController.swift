@@ -16,6 +16,8 @@ import Promises
 
 class ViewController: UIViewController {
     
+    let router = [0: VCNameType.GithubVC]
+    
     var shownCities = [String]() // Data source for UITableView
     let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
     let disposeBag = DisposeBag()
@@ -37,6 +39,8 @@ class ViewController: UIViewController {
         return { self.tableView.reloadData() }
     }
     
+//    var viewToNextPage:()
+    
     var onSearchChanged:(String)->(){
         return { value in
             self.modelUpdateShowCitiesBySearching(value)
@@ -55,15 +59,15 @@ class ViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellConfig.CellName.cell.rawValue)
         shownCities = allCities
         
+        
         searchBar
             .rx.text
             .orEmpty
-//            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: self.onSearchChanged)
             .disposed(by: disposeBag)
+            
     }
-
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -77,6 +81,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = router[indexPath.row]?.vc else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+enum VCNameType {
+    case GithubVC
     
+    var vc: UIViewController{
+        switch self {
+        case .GithubVC:
+            return GithubViewController.newInstant()
+        }
+    }
 }
 

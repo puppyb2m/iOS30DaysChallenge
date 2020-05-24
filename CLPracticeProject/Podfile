@@ -6,8 +6,9 @@ target 'CLPracticeProject' do
   use_frameworks!
 
   # Pods for CLPracticeProject
-  pod "RxSwift"
-  pod "RxCocoa"
+  pod 'RxCocoa'
+  pod 'Moya-ModelMapper/RxSwift'
+  pod 'RxOptional'
   pod 'PromisesSwift'
 
   target 'CLPracticeProjectTests' do
