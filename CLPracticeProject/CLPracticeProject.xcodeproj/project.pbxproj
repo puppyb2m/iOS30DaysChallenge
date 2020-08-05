@@ -10,6 +10,8 @@
 		18F011FBBB27DC460DCF9165 /* Pods_CLPracticeProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467141C189C068B98F361F38 /* Pods_CLPracticeProjectTests.framework */; };
 		25EC987F226270D173DC11FE /* Pods_CLPracticeProject_CLPracticeProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F877FF3DD7304A36EFF929A4 /* Pods_CLPracticeProject_CLPracticeProjectUITests.framework */; };
 		33B97FDD26F0F27C3B3D2FBB /* Pods_CLPracticeProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583DA8DB155E2FD62D0DDDCC /* Pods_CLPracticeProject.framework */; };
+		D51600E9248E75E200235C46 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51600E8248E75E200235C46 /* TravelViewController.swift */; };
+		D51600EB248E776400235C46 /* TravelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51600EA248E776400235C46 /* TravelViewModel.swift */; };
 		D5E409F52479F0FD00248F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E409F42479F0FD00248F96 /* AppDelegate.swift */; };
 		D5E409F72479F0FD00248F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E409F62479F0FD00248F96 /* SceneDelegate.swift */; };
 		D5E409F92479F0FD00248F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E409F82479F0FD00248F96 /* ViewController.swift */; };
@@ -53,6 +55,8 @@
 		8A94187202F9B5BA087927FB /* Pods-CLPracticeProject-CLPracticeProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPracticeProject-CLPracticeProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-CLPracticeProject-CLPracticeProjectUITests/Pods-CLPracticeProject-CLPracticeProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BEB1521739802AE661781D3D /* Pods-CLPracticeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPracticeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-CLPracticeProjectTests/Pods-CLPracticeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		D240BD4C6D6D6056B0EE7FC0 /* Pods-CLPracticeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPracticeProject.release.xcconfig"; path = "Target Support Files/Pods-CLPracticeProject/Pods-CLPracticeProject.release.xcconfig"; sourceTree = "<group>"; };
+		D51600E8248E75E200235C46 /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
+		D51600EA248E776400235C46 /* TravelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewModel.swift; sourceTree = "<group>"; };
 		D5E409F12479F0FD00248F96 /* CLPracticeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLPracticeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E409F42479F0FD00248F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5E409F62479F0FD00248F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D5E40A2A247A143E00248F96 /* GithubViewController.swift */,
+				D51600E8248E75E200235C46 /* TravelViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D5E40A39247A371B00248F96 /* IssuseTrackerModel.swift */,
+				D51600EA248E776400235C46 /* TravelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -510,6 +516,8 @@
 				D5E40A35247A365E00248F96 /* IssuseEntity.swift in Sources */,
 				D5E40A26247A137500248F96 /* GithubEndpoint.swift in Sources */,
 				D5E40A37247A366E00248F96 /* RepositoryEntity.swift in Sources */,
+				D51600EB248E776400235C46 /* TravelViewModel.swift in Sources */,
+				D51600E9248E75E200235C46 /* TravelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

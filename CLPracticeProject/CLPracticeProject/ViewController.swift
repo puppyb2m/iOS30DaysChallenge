@@ -16,10 +16,10 @@ import Promises
 
 class ViewController: UIViewController {
     
-    let router = [0: VCNameType.GithubVC]
+    let router:[Int: VCNameType] = [0: .githubVC , 1: .travelApp]
     
     var shownCities = [String]() // Data source for UITableView
-    let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
+    let allCities = ["New York", "travel app", "Oslo", "Warsaw", "Berlin", "Praga"]
     let disposeBag = DisposeBag()
     
     enum CellConfig{
@@ -39,14 +39,14 @@ class ViewController: UIViewController {
         return { self.tableView.reloadData() }
     }
     
-//    var viewToNextPage:()
+    //    var viewToNextPage:()
     
     var onSearchChanged:(String)->(){
         return { value in
             self.modelUpdateShowCitiesBySearching(value)
                 .then(self.viewReloadTabelView)
         }
-            
+        
     }
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -59,14 +59,13 @@ class ViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellConfig.CellName.cell.rawValue)
         shownCities = allCities
         
-        
         searchBar
             .rx.text
             .orEmpty
             .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: self.onSearchChanged)
             .disposed(by: disposeBag)
-            
+        
     }
 }
 
@@ -90,12 +89,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 enum VCNameType {
-    case GithubVC
+    case githubVC
+    case travelApp
     
     var vc: UIViewController{
         switch self {
-        case .GithubVC:
+        case .githubVC:
             return GithubViewController.newInstant()
+        case .travelApp:
+            return TravelViewController.newInstant()
         }
     }
 }
